@@ -8,7 +8,7 @@
 
 - https://www.zabbix.com/documentation/6.4/jp/manual/config/export/streaming
 
-- 送信先：https://git.zabbix.com/projects/ZT
+- 送信先：
   - [Kafka broker](https://git.zabbix.com/projects/ZT/repos/kafka-connector/browse)　公式Kafka connector
   - [Http server](https://git.zabbix.com/projects/ZT/repos/receiver/browse)　サンプルGolangアプリ、イベントとhistory データをファイルに書き込む
 
@@ -87,4 +87,6 @@ catch (error) {
 
 ### まとめ：
 
-アラートWebHookはアラートイベント、障害イベントを通知するために使われている。Agent Itemデータのストミーングとの関係が見えない
+- アラートWebHookはアラートイベント、障害イベントを通知するために使われている。
+- Agent Itemデータのストーミングとの関係が見えない、Connectorを利用するを推奨。
+- OSS上使えるHTTP requestできるConnectorがなさそう
