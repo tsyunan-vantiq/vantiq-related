@@ -90,3 +90,32 @@ catch (error) {
 - アラートWebHookはアラートイベント、障害イベントを通知するために使われている。
 - Agent Itemデータのストーミングとの関係が見えない、Connectorを利用するを推奨。
 - OSS上使えるHTTP requestできるConnectorがなさそう
+
+### UPDATE 6/10
+
+zabbix-connecter, kafka構築完了
+
+```
+ubuntu@ip-172-31-27-14:~/kafka-docker$ docker ps
+CONTAINER ID   IMAGE                                             COMMAND                  CREATED         STATUS                    PORTS                                                                            NAMES
+b3e7582a9a5b   kafka-connector                                   "./kafka-connector"      4 seconds ago   Up 3 seconds              0.0.0.0:8080->8080/tcp, :::8080->8080/tcp                                        agitated_herschel
+8e9d739fa97c   bitnami/kafka:3.4                                 "/opt/bitnami/script…"   3 minutes ago   Up 3 minutes              0.0.0.0:9092-9093->9092-9093/tcp, :::9092-9093->9092-9093/tcp                    kafka-docker-kafka-1
+febcce442f26   bitnami/zookeeper:3.8                             "/opt/bitnami/script…"   3 minutes ago   Up 3 minutes              2888/tcp, 3888/tcp, 0.0.0.0:2181->2181/tcp, :::2181->2181/tcp, 8080/tcp          kafka-docker-zookeeper-1
+fa9d9ebba27c   zabbix/zabbix-server-mysql:ubuntu-6.4-latest      "/usr/bin/tini -- /u…"   6 days ago      Up 32 minutes             0.0.0.0:10051->10051/tcp, :::10051->10051/tcp                                    zabbix-docker-zabbix-server-1
+5e72765e516b   zabbix/zabbix-agent2:latest                       "/sbin/tini -- /usr/…"   13 days ago     Up 32 minutes             0.0.0.0:10050->10050/tcp, :::10050->10050/tcp, 31999/tcp                         zabbix-docker-agent2-1
+b82783c4a555   zabbix/zabbix-web-nginx-mysql:ubuntu-6.4-latest   "docker-entrypoint.sh"   13 days ago     Up 32 minutes (healthy)   0.0.0.0:80->8080/tcp, :::80->8080/tcp, 0.0.0.0:443->8443/tcp, :::443->8443/tcp   zabbix-docker-zabbix-web-nginx-mysql-1
+715b234c0567   mysql:8.0-oracle                                  "docker-entrypoint.s…"   13 days ago     Up 32 minutes                                                                                              zabbix-docker-mysql-server-1
+```
+
+
+Zabbix Connector設定
+http://zabbix-web.vantiqjp.com/zabbix.php?action=connector.list
+
+![alt text](image-11.png)
+
+VANTIQ側resource作成
+
+![alt text](image-7.png)
+
+受信できていない。。
+![alt text](image-10.png)
