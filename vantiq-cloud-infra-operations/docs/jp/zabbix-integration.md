@@ -20,10 +20,11 @@ docker compose -f docker-compose_v3_ubuntu_mysql_latest.yaml up -d
 
 Zabbix Agent2構築： 
 - 対象環境変数修正：
-
-      `ZBX_HOSTNAME: "zabbix-agent"`
-      `ZBX_SERVER_HOST: "10.0.0.208"`
-      `ZBX_SERVER_PORT: '10051'`
+```
+      ZBX_HOSTNAME: "zabbix-agent"
+      ZBX_SERVER_HOST: "10.0.0.208"
+      ZBX_SERVER_PORT: '10051'
+```
 - 環境変数詳細：　https://hub.docker.com/r/zabbix/zabbix-agent2/
 ```
 wget -O docker-compose-agent2.yaml https://raw.githubusercontent.com/tsyunan-vantiq/kafka_connector_for_zabbix/main/docker-compose-agent2.yaml
