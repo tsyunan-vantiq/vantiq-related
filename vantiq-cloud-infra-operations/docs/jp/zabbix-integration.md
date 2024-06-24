@@ -9,20 +9,21 @@ git clone https://github.com/zabbix/zabbix-docker
 vi https://github.com/zabbix/zabbix-docker/blob/48a86dfa8de7a3d43a392de11aac95d792983e71/env_vars/.env_srv#L24C1-L24C24
 ```
 `ZBX_STARTCONNECTORS`環境変数を0から1に修正、下記URLの「Configuration」　→ ２　の記載通りに`StartConnectors`変数を修正 （URLに記載しているのはバイナリー方式のインストール方法で、StartConnectors
-変数のDockerバージョンの環境変数はZBX_STARTCONNECTORS）
+変数のDockerバージョンの環境変数は`ZBX_STARTCONNECTORS`）
 - 「2 Streaming to external systems」 セットアップ手順：　https://www.zabbix.com/documentation/7.0/en/manual/config/export/streaming
 - Dockerバージョンの環境変数詳細など：　https://hub.docker.com/r/zabbix/zabbix-server-mysql/
 
-Zabbix Web Ngix, Zabbix Server, MySQLを起動させる
+Zabbix Web Nginx, Zabbix Server, MySQLを起動させる
 ```
 docker compose -f docker-compose_v3_ubuntu_mysql_latest.yaml up -d
 ```
 
 Zabbix Agent2構築： 
 - 対象環境変数修正：
-      ZBX_HOSTNAME: "zabbix-agent"
-      ZBX_SERVER_HOST: "10.0.0.208"
-      ZBX_SERVER_PORT: '10051'
+
+      `ZBX_HOSTNAME: "zabbix-agent"`
+      `ZBX_SERVER_HOST: "10.0.0.208"`
+      `ZBX_SERVER_PORT: '10051'`
 - 環境変数詳細：　https://hub.docker.com/r/zabbix/zabbix-agent2/
 ```
 wget -O docker-compose-agent2.yaml https://raw.githubusercontent.com/tsyunan-vantiq/kafka_connector_for_zabbix/main/docker-compose-agent2.yaml
