@@ -6,7 +6,7 @@
 対象リポジトリクローンして、docker composeで起動
 ```
 git clone https://github.com/zabbix/zabbix-docker
-vi /env_vars/.env_srv
+vi env_vars/.env_srv
 ```
 `ZBX_STARTCONNECTORS`環境変数を0から1に修正、下記URLの「Configuration」　→ ２　の記載通りに`StartConnectors`変数を修正 （URLに記載しているのはバイナリー方式のインストール方法で、StartConnectors
 変数のDockerバージョンの環境変数は`ZBX_STARTCONNECTORS`）
